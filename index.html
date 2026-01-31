@@ -4,13 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SULAI-BARBER - Salon de Coiffure Homme | PK17 Douala</title>
+    
+    <!-- Importation des polices Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lien vers le fichier CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    
+    <!-- ========== BARRE DE NAVIGATION ========== -->
     <nav>
         <div class="nav-container">
+            <!-- Logo du salon -->
             <div class="logo">SULAI-BARBER</div>
+            
+            <!-- Menu de navigation avec ancres vers les sections -->
             <ul class="nav-links">
                 <li><a href="#hero">Accueil</a></li>
                 <li><a href="#features">Services</a></li>
@@ -21,12 +30,23 @@
         </div>
     </nav>
 
+    <!-- ========== SECTION HERO (ACCUEIL) ========== -->
+    <!-- Cette section contient l'image de fond header.png -->
     <section id="hero">
+        <!-- Filtre sombre sur l'image de fond -->
         <div class="hero-overlay"></div>
+        
         <div class="hero-content">
+            <!-- Badge "Nouvelle ouverture" -->
             <div class="badge">NOUVELLE OUVERTURE</div>
+            
+            <!-- Titre principal du salon -->
             <h1>SULAI-BARBER</h1>
+            
+            <!-- Sous-titre avec localisation -->
             <p>Votre nouveau salon de coiffure à PK17, Douala</p>
+            
+            <!-- Boutons d'action -->
             <div class="cta-buttons">
                 <a href="#pricing" class="btn btn-primary">Voir les tarifs</a>
                 <a href="tel:+237680065161" class="btn btn-secondary">Appelez-nous</a>
@@ -34,52 +54,76 @@
         </div>
     </section>
 
+    <!-- ========== SECTION NOS SERVICES ========== -->
+    <!-- Présente les 3 services avec galerie d'images -->
     <section id="features">
         <div class="container">
             <h2 class="section-title">Nos Services</h2>
+            
             <div class="features-grid">
+                <!-- SERVICE 1: Coupe Moderne -->
                 <div class="feature-card">
-                    <div class="feature-image-wrapper">
-                        <img src="assets/coupe-moderne.jpg" alt="Coupe Moderne" class="feature-img">
-                        <div class="feature-overlay">
-                            <div class="gallery-icons">
-                                <img src="assets/coupe-moderne1.jpg" alt="Style 1" class="mini-preview">
-                                <img src="assets/coupe-moderne2.jpg" alt="Style 2" class="mini-preview">
-                            </div>
+                    <!-- Galerie d'images avec 3 photos de coupes modernes -->
+                    <div class="feature-images">
+                        <div class="image-slider">
+                            <img src="assets/coupe-moderne.jpg" alt="Coupe Moderne" class="active">
+                            <img src="assets/coupe-moderne1.jpg" alt="Coupe Moderne">
+                            <img src="assets/coupe-moderne2.jpg" alt="Coupe Moderne">
+                        </div>
+                        <!-- Points de navigation pour le slider -->
+                        <div class="slider-dots">
+                            <span class="dot active" data-index="0"></span>
+                            <span class="dot" data-index="1"></span>
+                            <span class="dot" data-index="2"></span>
                         </div>
                     </div>
+                    <!-- Contenu texte du service -->
                     <div class="feature-content">
                         <h3>Coupe Moderne</h3>
                         <p>Des coupes tendances réalisées avec soin et précision pour sublimer votre style.</p>
                     </div>
                 </div>
-
+                
+                <!-- SERVICE 2: Rasage Pro -->
                 <div class="feature-card">
-                    <div class="feature-image-wrapper">
-                        <img src="assets/rasage.jpg" alt="Rasage Pro" class="feature-img">
-                        <div class="feature-overlay">
-                            <div class="gallery-icons">
-                                <img src="assets/rasage1.jpg" alt="Style 1" class="mini-preview">
-                                <img src="assets/rasage2.webp" alt="Style 2" class="mini-preview">
-                            </div>
+                    <!-- Galerie d'images avec 3 photos de rasage -->
+                    <div class="feature-images">
+                        <div class="image-slider">
+                            <img src="assets/rasage.jpg" alt="Rasage Pro" class="active">
+                            <img src="assets/rasage1.jpg" alt="Rasage Pro">
+                            <img src="assets/rasage2.webp" alt="Rasage Pro">
+                        </div>
+                        <!-- Points de navigation pour le slider -->
+                        <div class="slider-dots">
+                            <span class="dot active" data-index="0"></span>
+                            <span class="dot" data-index="1"></span>
+                            <span class="dot" data-index="2"></span>
                         </div>
                     </div>
+                    <!-- Contenu texte du service -->
                     <div class="feature-content">
                         <h3>Rasage Pro</h3>
                         <p>Un rasage professionnel pour un look impeccable et une peau douce.</p>
                     </div>
                 </div>
-
+                
+                <!-- SERVICE 3: Entretien Barbe -->
                 <div class="feature-card">
-                    <div class="feature-image-wrapper">
-                        <img src="assets/barbe.jpg" alt="Entretien Barbe" class="feature-img">
-                        <div class="feature-overlay">
-                            <div class="gallery-icons">
-                                <img src="assets/barbe1.jpg" alt="Style 1" class="mini-preview">
-                                <img src="assets/barbe2.jpg" alt="Style 2" class="mini-preview">
-                            </div>
+                    <!-- Galerie d'images avec 3 photos de barbe -->
+                    <div class="feature-images">
+                        <div class="image-slider">
+                            <img src="assets/barbe.jpg" alt="Entretien Barbe" class="active">
+                            <img src="assets/barbe1.jpg" alt="Entretien Barbe">
+                            <img src="assets/barbe2.jpg" alt="Entretien Barbe">
+                        </div>
+                        <!-- Points de navigation pour le slider -->
+                        <div class="slider-dots">
+                            <span class="dot active" data-index="0"></span>
+                            <span class="dot" data-index="1"></span>
+                            <span class="dot" data-index="2"></span>
                         </div>
                     </div>
+                    <!-- Contenu texte du service -->
                     <div class="feature-content">
                         <h3>Entretien Barbe</h3>
                         <p>Taille et soin de votre barbe pour un résultat soigné et élégant.</p>
@@ -89,63 +133,55 @@
         </div>
     </section>
 
+    <!-- ========== SECTION AVIS CLIENTS ========== -->
+    <!-- Témoignages de 3 clients satisfaits -->
     <section id="temoignages">
         <div class="container">
             <h2 class="section-title">Avis Clients</h2>
+            
             <div class="testimonials-grid">
+                <!-- AVIS 1 -->
                 <div class="testimonial-card">
+                    <!-- Grande guillemet décoratif -->
                     <div class="quote-icon">"</div>
+                    
+                    <!-- Texte du témoignage -->
                     <p class="testimonial-quote">Excellent salon ! Service rapide et coupe parfaite. Je recommande à tous.</p>
-                    <div class="testimonial-rating">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                    </div>
+                    
+                    <!-- Informations sur le client -->
                     <div class="testimonial-author">
+                        <!-- Avatar avec initiale -->
                         <div class="author-avatar">R</div>
                         <div class="author-info">
                             <p class="author-name">Mr Rayan</p>
-                            <p class="author-status">Client</p>
+                            <!-- Étoiles de notation -->
+                            <div class="stars">★★★★★</div>
                         </div>
                     </div>
                 </div>
-
-                <div class="testimonial-card featured-testimonial">
+                
+                <!-- AVIS 2 -->
+                <div class="testimonial-card">
                     <div class="quote-icon">"</div>
                     <p class="testimonial-quote">Ambiance cool et coiffeur très professionnel. Mon nouveau salon préféré !</p>
-                    <div class="testimonial-rating">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                    </div>
                     <div class="testimonial-author">
                         <div class="author-avatar">S</div>
                         <div class="author-info">
                             <p class="author-name">Mr Sulaimanu</p>
-                            <p class="author-status">Client régulier</p>
+                            <div class="stars">★★★★★</div>
                         </div>
                     </div>
                 </div>
-
+                
+                <!-- AVIS 3 -->
                 <div class="testimonial-card">
                     <div class="quote-icon">"</div>
                     <p class="testimonial-quote">Très satisfait du service. Prix corrects et résultat au top !</p>
-                    <div class="testimonial-rating">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                    </div>
                     <div class="testimonial-author">
                         <div class="author-avatar">T</div>
                         <div class="author-info">
                             <p class="author-name">Mr Tsolefack</p>
-                            <p class="author-status">Client</p>
+                            <div class="stars">★★★★★</div>
                         </div>
                     </div>
                 </div>
@@ -153,41 +189,54 @@
         </div>
     </section>
 
+    <!-- ========== SECTION TARIFS ========== -->
+    <!-- Présente les 3 forfaits avec prix -->
     <section id="pricing">
         <div class="container">
             <h2 class="section-title">Nos Tarifs</h2>
+            
             <div class="pricing-grid">
+                <!-- FORFAIT 1: Coupe Simple -->
                 <div class="pricing-card">
                     <h3>Coupe Simple</h3>
                     <div class="price">2.500<span> FCFA</span></div>
+                    
+                    <!-- Liste des services inclus -->
                     <ul class="pricing-features">
                         <li>Coupe classique</li>
                         <li>Shampoing</li>
                         <li>Finitions</li>
                     </ul>
-                    <div class="pricing-button-wrapper">
-                        <a href="tel:+237680065161" class="btn btn-primary">Réserver</a>
-                    </div>
+                    
+                    <!-- Bouton de réservation avec lien téléphone -->
+                    <a href="tel:+237680065161" class="btn btn-primary">Réserver</a>
                 </div>
-
+                
+                <!-- FORFAIT 2: Coupe Premium (LE PLUS POPULAIRE) -->
                 <div class="pricing-card featured">
+                    <!-- Badge "Populaire" -->
                     <div class="popular-badge">POPULAIRE</div>
+                    
                     <h3>Coupe Premium</h3>
                     <div class="price">4.000<span> FCFA</span></div>
+                    
+                    <!-- Liste des services inclus -->
                     <ul class="pricing-features">
                         <li>Coupe personnalisée</li>
                         <li>Taille de barbe</li>
                         <li>Shampoing</li>
                         <li>Finitions rasoir</li>
                     </ul>
-                    <div class="pricing-button-wrapper">
-                        <a href="tel:+237680065161" class="btn btn-primary">Réserver</a>
-                    </div>
+                    
+                    <a href="tel:+237680065161" class="btn btn-primary">Réserver</a>
                 </div>
-
+                
+                <!-- FORFAIT 3: Service Complet -->
                 <div class="pricing-card">
                     <h3>Service Complet</h3>
                     <div class="price">6.000<span> FCFA</span></div>
+                    
+                    <!-- Liste des services inclus -->
                     <ul class="pricing-features">
                         <li>Coupe + Barbe</li>
                         <li>Rasage complet</li>
@@ -195,70 +244,78 @@
                         <li>Soin du visage</li>
                         <li>Massage</li>
                     </ul>
-                    <div class="pricing-button-wrapper">
-                        <a href="tel:+237680065161" class="btn btn-primary">Réserver</a>
-                    </div>
+                    
+                    <a href="tel:+237680065161" class="btn btn-primary">Réserver</a>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ========== SECTION NEWSLETTER ========== -->
+    <!-- Formulaire d'inscription à la newsletter -->
     <section id="newsletter">
-        <div class="newsletter-wrapper">
-            <div class="newsletter-visual">
-                <img src="assets/coiffeur.png" alt="Coiffeur professionnel">
-                <div class="visual-overlay"></div>
-            </div>
+        <div class="newsletter-container">
             <div class="newsletter-content">
-                <div class="newsletter-icon">✉</div>
+                <!-- Icône email -->
+                <div class="newsletter-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                </div>
+                
                 <h2>Restez Informé</h2>
-                <p>Inscrivez-vous à notre newsletter pour recevoir nos offres exclusives, promotions spéciales et les dernières tendances coiffure.</p>
+                <p>Inscrivez-vous à notre newsletter et recevez en exclusivité nos offres spéciales, promotions et nouveautés</p>
+                
+                <!-- Formulaire email -->
                 <form class="newsletter-form" onsubmit="handleSubmit(event)">
-                    <div class="form-group">
+                    <div class="input-wrapper">
+                        <!-- Champ email -->
                         <input 
                             type="email" 
                             name="email" 
                             placeholder="Entrez votre adresse email" 
                             required
                         >
-                        <button type="submit" class="btn btn-primary">S'inscrire</button>
+                        <!-- Bouton submit -->
+                        <button type="submit" class="btn btn-submit">
+                            S'inscrire
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </button>
                     </div>
-                    <p class="form-note">Vos données sont sécurisées. Pas de spam.</p>
                 </form>
-                <div class="newsletter-benefits">
-                    <div class="benefit-item">
-                        <span class="benefit-icon">✓</span>
-                        <span>Offres exclusives</span>
-                    </div>
-                    <div class="benefit-item">
-                        <span class="benefit-icon">✓</span>
-                        <span>Promotions mensuelles</span>
-                    </div>
-                    <div class="benefit-item">
-                        <span class="benefit-icon">✓</span>
-                        <span>Conseils style</span>
-                    </div>
-                </div>
+                
+                <!-- Message de confidentialité -->
+                <p class="newsletter-privacy">Nous respectons votre vie privée. Pas de spam.</p>
             </div>
         </div>
     </section>
 
+    <!-- ========== FOOTER (PIED DE PAGE) ========== -->
     <footer>
         <div class="footer-grid">
+            <!-- Colonne 1: À propos -->
             <div class="footer-section">
                 <h3>SULAI-BARBER</h3>
                 <p>Votre nouveau salon de coiffure homme à Douala. Ouverture récente !</p>
             </div>
+            
+            <!-- Colonne 2: Horaires -->
             <div class="footer-section">
                 <h3>Horaires</h3>
                 <p>Lundi - Samedi: 9h - 20h</p>
                 <p>Dimanche: 10h - 18h</p>
             </div>
+            
+            <!-- Colonne 3: Contact -->
             <div class="footer-section">
                 <h3>Contact</h3>
                 <p>Adresse: PK17, Douala, Cameroun</p>
                 <p>Téléphone: <a href="tel:+237680065161">+237 680 065 161</a></p>
             </div>
+            
+            <!-- Colonne 4: Navigation -->
             <div class="footer-section">
                 <h3>Navigation</h3>
                 <a href="#features">Services</a>
@@ -266,11 +323,14 @@
                 <a href="#temoignages">Avis</a>
             </div>
         </div>
+        
+        <!-- Copyright -->
         <div class="footer-bottom">
             <p>&copy; 2026 SULAI-BARBER. Tous droits réservés.</p>
         </div>
     </footer>
 
+    <!-- Lien vers le fichier JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
