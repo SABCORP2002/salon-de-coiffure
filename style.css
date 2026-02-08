@@ -1,50 +1,53 @@
-/* STYLES GENERAUX */
+/* ========================================
+   DEBUT DU CSS - REGLES GENERALES
+======================================== */
 
-/* Remet tous les styles à zéro */
+/* Enlève les marges par défaut */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Variables de couleurs pour tout le site */
+/* Couleurs principales du site */
 :root {
-    --primary: #c9a961;        /* Couleur dorée principale */
-    --dark: #1a1a1a;           /* Noir foncé */
-    --light: #ffffff;          /* Blanc */
-    --gray: #333333;           /* Gris foncé */
+    --primary: #c9a961;      /* Couleur dorée */
+    --dark: #1a1a1a;         /* Noir */
+    --light: #ffffff;        /* Blanc */
+    --gray: #333333;         /* Gris foncé */
 }
 
-/* Style de base du body */
+/* Style de base de la page */
 body {
     font-family: 'Poppins', sans-serif;
     color: var(--dark);
     line-height: 1.6;
 }
 
-/* Amélioration de la qualité des images */
+/* Améliore la qualité des images */
 img {
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: high-quality;
-    backface-visibility: hidden;
-    transform: translateZ(0);
     max-width: 100%;
+    height: auto;
+    display: block;
 }
 
-/* NAVIGATION */
 
-/* Barre de navigation fixe en haut */
+/* ========================================
+   MENU DE NAVIGATION
+======================================== */
+
+/* Barre du menu (reste en haut quand on scroll) */
 nav {
     background: var(--dark);
     padding: 1rem 5%;
-    position: fixed;          /* Reste en haut quand on scroll */
+    position: fixed;
     width: 100%;
     top: 0;
-    z-index: 1000;           /* Passe au-dessus des autres éléments */
+    z-index: 1000;
     box-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
 
-/* Container du menu */
+/* Contenu du menu */
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -53,7 +56,7 @@ nav {
     align-items: center;
 }
 
-/* Style du logo */
+/* Logo du salon */
 .logo {
     font-family: 'Bebas Neue', cursive;
     font-size: 1.8rem;
@@ -61,31 +64,34 @@ nav {
     letter-spacing: 2px;
 }
 
-/* Liste des liens de navigation */
+/* Liste des liens */
 .nav-links {
     display: flex;
     gap: 2rem;
     list-style: none;
 }
 
-/* Style des liens de navigation */
+/* Style des liens */
 .nav-links a {
     color: var(--light);
     text-decoration: none;
     font-weight: 400;
-    transition: color 0.3s;   /* Animation douce au survol */
+    transition: color 0.3s;
 }
 
-/* Changement de couleur au survol */
+/* Quand on survole un lien */
 .nav-links a:hover {
     color: var(--primary);
 }
 
-/*  SECTION HERO (ACCUEIL) */
 
-/* Section d'accueil avec image de fond header.png */
+/* ========================================
+   PAGE D'ACCUEIL
+======================================== */
+
+/* Grande section avec image de fond */
 #hero {
-    min-height: 100vh;           /* Prend toute la hauteur de l'écran */
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -94,44 +100,40 @@ nav {
     background: url('assets/header.png') center/cover no-repeat fixed;
     position: relative;
     color: var(--light);
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
 }
 
-/* Filtre sombre sur l'image de fond */
+/* Couche sombre sur l'image */
 .hero-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(26, 26, 26, 0.6) 100%);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(26, 26, 26, 0.6));
     z-index: 1;
 }
 
-/* Contenu du hero (texte et boutons) */
+/* Contenu (titre, texte, boutons) */
 .hero-content {
     position: relative;
-    z-index: 2;              /* Passe au-dessus du filtre */
+    z-index: 2;
     max-width: 800px;
 }
 
-/* Titre principal SULAI-BARBER */
+/* Grand titre SULAI-BARBER */
 .hero-content h1 {
     font-family: 'Bebas Neue', cursive;
-    font-size: clamp(3rem, 8vw, 5rem);    /* Taille responsive */
+    font-size: clamp(3rem, 8vw, 5rem);
     color: var(--primary);
     margin-bottom: 1rem;
     letter-spacing: 3px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* Sous-titre */
+/* Texte sous le titre */
 .hero-content p {
     font-size: 1.3rem;
     margin-bottom: 2rem;
     font-weight: 300;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 /* Badge "Nouvelle ouverture" */
@@ -143,7 +145,6 @@ nav {
     font-weight: 600;
     margin-bottom: 2rem;
     font-size: 0.9rem;
-    box-shadow: 0 4px 15px rgba(201, 169, 97, 0.4);
 }
 
 /* Container des boutons */
@@ -154,7 +155,7 @@ nav {
     flex-wrap: wrap;
 }
 
-/* Style de base des boutons */
+/* Style général des boutons */
 .btn {
     padding: 1rem 2.5rem;
     font-size: 1rem;
@@ -169,39 +170,42 @@ nav {
     gap: 0.5rem;
 }
 
-/* Bouton principal (doré) */
+/* Bouton jaune/doré */
 .btn-primary {
     background: var(--primary);
     color: var(--dark);
 }
 
-/* Animation au survol du bouton principal */
+/* Quand on survole le bouton doré */
 .btn-primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 10px 25px rgba(201, 169, 97, 0.4);
 }
 
-/* Bouton secondaire (transparent) */
+/* Bouton transparent avec bordure */
 .btn-secondary {
     background: transparent;
     color: var(--light);
     border: 2px solid var(--primary);
 }
 
-/* Animation au survol du bouton secondaire */
+/* Quand on survole le bouton transparent */
 .btn-secondary:hover {
     background: var(--primary);
     color: var(--dark);
 }
 
-/* STYLES COMMUNS AUX SECTIONS */
 
-/* Espacement vertical des sections */
+/* ========================================
+   ESPACEMENT DES SECTIONS
+======================================== */
+
+/* Espace en haut et en bas de chaque section */
 section {
     padding: 5rem 5%;
 }
 
-/* Container pour limiter la largeur du contenu */
+/* Limite la largeur du contenu */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -217,14 +221,17 @@ section {
     letter-spacing: 2px;
 }
 
-/* SECTION NOS SERVICES*/
 
-/* Fond gris clair pour cette section */
+/* ========================================
+   NOS SERVICES
+======================================== */
+
+/* Fond gris clair */
 #features {
     background: #f9f9f9;
 }
 
-/* Grille des 3 services */
+/* Grille de 3 colonnes */
 .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -237,28 +244,27 @@ section {
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s;
 }
 
-/* Animation au survol de la carte */
+/* Quand on survole une carte */
 .feature-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
 }
 
-/* Container des images du service */
+/* Zone des images */
 .feature-images {
     position: relative;
     overflow: hidden;
 }
 
-/* Slider d'images */
+/* Container du slider */
 .image-slider {
     position: relative;
     height: 280px;
 }
 
-/* Style de chaque image dans le slider */
+/* Chaque image */
 .image-slider img {
     position: absolute;
     top: 0;
@@ -266,16 +272,16 @@ section {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0;                /* Cache l'image par défaut */
+    opacity: 0;
     transition: opacity 0.5s ease;
 }
 
-/* Image active (visible) */
+/* Image visible */
 .image-slider img.active {
     opacity: 1;
 }
 
-/* Points de navigation du slider */
+/* Petits points en bas */
 .slider-dots {
     position: absolute;
     bottom: 15px;
@@ -303,7 +309,7 @@ section {
     border-radius: 5px;
 }
 
-/* Contenu texte du service */
+/* Texte sous les images */
 .feature-content {
     padding: 2rem;
 }
@@ -314,53 +320,54 @@ section {
     color: var(--dark);
     margin-bottom: 1rem;
     font-family: 'Bebas Neue', cursive;
-    letter-spacing: 1px;
 }
 
-/* Description du service */
+/* Description */
 .feature-content p {
     color: #666;
     line-height: 1.7;
 }
 
-/*SECTION AVIS CLIENTS*/
 
-/* Fond noir avec dégradé */
+/* ========================================
+   AVIS CLIENTS
+======================================== */
+
+/* Fond noir */
 #temoignages {
     background: linear-gradient(135deg, var(--dark) 0%, #252525 100%);
     color: var(--light);
 }
 
-/* Titre de la section en doré */
+/* Titre en doré */
 #temoignages .section-title {
     color: var(--primary);
 }
 
-/* Grille des 3 témoignages */
+/* Grille de 3 colonnes */
 .testimonials-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2.5rem;
 }
 
-/* Carte de témoignage */
+/* Carte d'avis */
 .testimonial-card {
     background: linear-gradient(135deg, var(--gray) 0%, #2a2a2a 100%);
     padding: 2.5rem;
     border-radius: 12px;
     border-left: 4px solid var(--primary);
     position: relative;
-    transition: transform 0.3s, box-shadow 0.3s;
     box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    transition: transform 0.3s;
 }
 
-/* Animation au survol */
+/* Quand on survole */
 .testimonial-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(201, 169, 97, 0.2);
 }
 
-/* Grande guillemet décoratif */
+/* Grand guillemet décoratif */
 .quote-icon {
     font-size: 4rem;
     color: var(--primary);
@@ -371,23 +378,21 @@ section {
     font-family: Georgia, serif;
 }
 
-/* Texte du témoignage */
+/* Texte de l'avis */
 .testimonial-quote {
     font-style: italic;
     margin-bottom: 1.5rem;
     line-height: 1.8;
-    position: relative;
-    z-index: 1;
 }
 
-/* Container auteur */
+/* Info du client */
 .testimonial-author {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
 
-/* Avatar avec initiale */
+/* Cercle avec initiale */
 .author-avatar {
     width: 60px;
     height: 60px;
@@ -399,36 +404,197 @@ section {
     font-weight: 700;
     font-size: 1.5rem;
     color: var(--dark);
-    box-shadow: 0 4px 10px rgba(201, 169, 97, 0.3);
 }
 
-/* Info de l'auteur */
-.author-info {
-    flex: 1;
-}
-
-/* Nom de l'auteur */
+/* Nom du client */
 .author-name {
     font-weight: 600;
     color: var(--primary);
     margin-bottom: 0.3rem;
 }
 
-/* Étoiles de notation */
+/* Étoiles */
 .stars {
     color: var(--primary);
     font-size: 1.1rem;
     letter-spacing: 2px;
 }
 
-/* SECTION TARIFS */
+
+/* ========================================
+   RESERVATION EN LIGNE
+======================================== */
+
+/* Fond blanc */
+#reservation {
+    background: var(--light);
+}
+
+/* Sous-titre de la section */
+.reservation-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+}
+
+/* Container principal */
+.reservation-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Formulaire de réservation */
+.reservation-form {
+    background: var(--light);
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+/* Ligne avec 2 champs */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+/* Groupe de champ (label + input) */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+/* Label (texte au-dessus du champ) */
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--dark);
+}
+
+/* Champs de texte */
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+/* Quand on clique dans un champ */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+/* Zone de texte */
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Bouton de réservation */
+.btn-reservation {
+    width: 100%;
+    padding: 1.2rem;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+}
+
+/* Message de confirmation */
+.reservation-message {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 600;
+    display: none;
+}
+
+/* Message de succès */
+.reservation-message.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    display: block;
+}
+
+/* Message d'erreur */
+.reservation-message.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    display: block;
+}
+
+/* Informations complémentaires */
+.reservation-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Carte d'info */
+.info-card {
+    background: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid var(--primary);
+    text-align: center;
+}
+
+/* Icône de la carte */
+.info-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Titre de la carte */
+.info-card h3 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.3rem;
+    color: var(--dark);
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+/* Texte de la carte */
+.info-card p {
+    color: #666;
+    margin: 0.3rem 0;
+}
+
+/* Lien téléphone dans la carte */
+.info-card a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.info-card a:hover {
+    text-decoration: underline;
+}
+
+
+/* ========================================
+   TARIFS
+======================================== */
 
 /* Fond gris clair */
 #pricing {
     background: #f9f9f9;
 }
 
-/* Grille des 3 forfaits */
+/* Grille de 3 colonnes */
 .pricing-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -437,7 +603,7 @@ section {
     margin: 0 auto;
 }
 
-/* Carte de forfait */
+/* Carte de tarif */
 .pricing-card {
     background: var(--light);
     padding: 2.5rem 2rem;
@@ -445,24 +611,18 @@ section {
     text-align: center;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
     transition: transform 0.3s;
-    position: relative;
     display: flex;
-    flex-direction: column;    /* Pour aligner le bouton en bas */
+    flex-direction: column;
 }
 
-/* Animation au survol */
+/* Quand on survole */
 .pricing-card:hover {
     transform: scale(1.05);
 }
 
-/* Carte "Premium" mise en avant */
+/* Carte "Populaire" (Premium) */
 .pricing-card.featured {
     border: 3px solid var(--primary);
-    transform: scale(1.08);
-}
-
-.pricing-card.featured:hover {
-    transform: scale(1.1);
 }
 
 /* Badge "Populaire" */
@@ -476,7 +636,6 @@ section {
     padding: 0.3rem 1rem;
     font-weight: 700;
     font-size: 0.85rem;
-    box-shadow: 0 4px 10px rgba(201, 169, 97, 0.3);
 }
 
 /* Titre du forfait */
@@ -487,7 +646,7 @@ section {
     margin-bottom: 1rem;
 }
 
-/* Prix du forfait */
+/* Prix */
 .price {
     font-size: 2.5rem;
     font-weight: 700;
@@ -499,32 +658,49 @@ section {
     font-size: 1rem;
 }
 
-/* Liste des services inclus */
+/* Liste des services */
 .pricing-features {
     list-style: none;
-    margin-bottom: auto;        /* Pousse le bouton en bas */
+    margin-bottom: auto;
     padding-bottom: 2rem;
+    text-align: left;
 }
 
+/* Chaque ligne */
 .pricing-features li {
     padding: 0.7rem 0;
     border-bottom: 1px solid #eee;
+    padding-left: 1.5rem;
+    position: relative;
 }
 
+/* Coche verte */
+.pricing-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+/* Dernière ligne sans bordure */
 .pricing-features li:last-child {
     border-bottom: none;
 }
 
-/* Bouton aligné en bas */
+/* Bouton en bas de la carte */
 .pricing-card .btn {
     margin-top: auto;
     width: 100%;
     justify-content: center;
 }
 
-/* SECTION NEWSLETTER */
 
-/* Fond noir avec dégradé */
+/* ========================================
+   NEWSLETTER
+======================================== */
+
+/* Fond noir */
 #newsletter {
     background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
     padding: 6rem 5%;
@@ -536,17 +712,16 @@ section {
     margin: 0 auto;
 }
 
-/* Box du contenu */
+/* Boîte du contenu */
 .newsletter-content {
     background: linear-gradient(135deg, var(--gray) 0%, #2a2a2a 100%);
     padding: 4rem 3rem;
     border-radius: 20px;
     text-align: center;
     box-shadow: 0 10px 40px rgba(0,0,0,0.4);
-    border: 1px solid rgba(201, 169, 97, 0.2);
 }
 
-/* Icône email */
+/* Icône email en cercle */
 .newsletter-icon {
     width: 80px;
     height: 80px;
@@ -556,7 +731,6 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 5px 20px rgba(201, 169, 97, 0.4);
 }
 
 .newsletter-icon svg {
@@ -565,7 +739,7 @@ section {
     color: var(--dark);
 }
 
-/* Titre de la section */
+/* Titre */
 .newsletter-content h2 {
     font-family: 'Bebas Neue', cursive;
     font-size: 2.5rem;
@@ -574,7 +748,7 @@ section {
     letter-spacing: 2px;
 }
 
-/* Description */
+/* Texte */
 .newsletter-content > p {
     color: #ccc;
     margin-bottom: 2rem;
@@ -588,7 +762,7 @@ section {
     margin: 0 auto;
 }
 
-/* Container input + bouton */
+/* Champ + bouton ensemble */
 .input-wrapper {
     display: flex;
     gap: 0;
@@ -609,15 +783,17 @@ input[type="email"] {
     font-size: 1rem;
 }
 
+/* Quand on clique dedans */
 input[type="email"]:focus {
     outline: none;
 }
 
+/* Texte placeholder */
 input[type="email"]::placeholder {
     color: #999;
 }
 
-/* Bouton submit */
+/* Bouton envoyer */
 .btn-submit {
     background: var(--primary);
     color: var(--dark);
@@ -633,18 +809,22 @@ input[type="email"]::placeholder {
     height: 20px;
 }
 
+/* Quand on survole */
 .btn-submit:hover {
     background: #d4af37;
 }
 
-/* Message de confidentialité */
+/* Petit texte en bas */
 .newsletter-privacy {
     margin-top: 1.5rem;
     font-size: 0.85rem;
     color: #999;
 }
 
-/* FOOTER (PIED DE PAGE)*/
+
+/* ========================================
+   BAS DE PAGE (FOOTER)
+======================================== */
 
 /* Fond noir */
 footer {
@@ -653,7 +833,7 @@ footer {
     padding: 3rem 5%;
 }
 
-/* Grille des colonnes du footer */
+/* Grille de 4 colonnes */
 .footer-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -662,11 +842,12 @@ footer {
     margin: 0 auto 2rem;
 }
 
-/* Titre de chaque section */
+/* Titre de chaque colonne */
 .footer-section h3 {
     color: var(--primary);
     margin-bottom: 1rem;
     font-size: 1.3rem;
+    font-family: 'Bebas Neue', cursive;
 }
 
 /* Texte et liens */
@@ -676,13 +857,61 @@ footer {
     text-decoration: none;
     display: block;
     margin-bottom: 0.5rem;
+    transition: color 0.3s;
 }
 
+/* Quand on survole un lien */
 .footer-section a:hover {
     color: var(--primary);
 }
 
-/* Section copyright */
+/* Container des réseaux sociaux */
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+/* Lien de réseau social */
+.social-links a {
+    width: 40px;
+    height: 40px;
+    background: var(--gray);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+/* Image du réseau social */
+.social-links img {
+    width: 22px;
+    height: 22px;
+    filter: brightness(0) invert(1);
+}
+
+/* Quand on survole un réseau social */
+.social-links a:hover {
+    background: var(--primary);
+    transform: translateY(-3px);
+}
+
+/* Ligne téléphone avec icône */
+.phone-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Icône téléphone */
+.phone-icon {
+    width: 18px;
+    height: 18px;
+    filter: brightness(0) invert(1);
+}
+
+/* Ligne de copyright */
 .footer-bottom {
     text-align: center;
     padding-top: 2rem;
@@ -690,11 +919,14 @@ footer {
     color: #999;
 }
 
-/* RESPONSIVE (MOBILE) */
 
-/* Pour les écrans de moins de 768px */
+/* ========================================
+   VERSION MOBILE
+======================================== */
+
+/* Pour les petits écrans */
 @media (max-width: 768px) {
-    /* Navigation plus compacte */
+    /* Menu plus petit */
     .nav-links {
         gap: 1rem;
         font-size: 0.9rem;
@@ -718,10 +950,10 @@ footer {
     }
 
     .btn-submit {
-        border-radius: 0;
+        border-radius: 0 0 10px 10px;
     }
 
-    /* Réduction de l'espacement */
+    /* Moins d'espace */
     section {
         padding: 3rem 5%;
     }
@@ -730,8 +962,20 @@ footer {
         padding: 3rem 1.5rem;
     }
 
-    /* Carte premium à taille normale sur mobile */
-    .pricing-card.featured {
-        transform: scale(1);
+    /* Grilles en une colonne */
+    .features-grid,
+    .testimonials-grid,
+    .pricing-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Réservation en une colonne sur mobile */
+    .reservation-container {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Champs en une colonne sur mobile */
+    .form-row {
+        grid-template-columns: 1fr;
     }
 }
