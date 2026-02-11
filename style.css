@@ -1,62 +1,64 @@
-/* ========================================
-   DEBUT DU CSS - REGLES GENERALES
-======================================== */
-
-/* Enlève les marges par défaut */
+/* ===== STYLES GÉNÉRAUX ===== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Couleurs principales du site */
 :root {
-    --primary: #c9a961;      /* Couleur dorée */
-    --dark: #1a1a1a;         /* Noir */
-    --light: #ffffff;        /* Blanc */
-    --gray: #333333;         /* Gris foncé */
+    --primary: #c9a961;
+    --dark: #1a1a1a;
+    --light: #ffffff;
+    --gray: #333333;
+    --gray-light: #f5f5f5;
 }
 
-/* Style de base de la page */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     color: var(--dark);
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
-/* Améliore la qualité des images */
 img {
     max-width: 100%;
     height: auto;
     display: block;
 }
 
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
 
-/* ========================================
-   MENU DE NAVIGATION
-======================================== */
-
-/* Barre du menu (reste en haut quand on scroll) */
-nav {
-    background: var(--dark);
-    padding: 1rem 5%;
+/* ===== HEADER ET NAVIGATION ===== */
+header {
     position: fixed;
-    width: 100%;
     top: 0;
+    width: 100%;
     z-index: 1000;
+    background: var(--dark);
     box-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
 
-/* Contenu du menu */
+.navbar {
+    padding: 1rem 0;
+}
+
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-/* Logo du salon */
 .logo {
     font-family: 'Bebas Neue', cursive;
     font-size: 1.8rem;
@@ -64,45 +66,54 @@ nav {
     letter-spacing: 2px;
 }
 
-/* Liste des liens */
-.nav-links {
+.nav-menu {
     display: flex;
     gap: 2rem;
     list-style: none;
+    align-items: center;
 }
 
-/* Style des liens */
-.nav-links a {
+.nav-menu a {
     color: var(--light);
     text-decoration: none;
     font-weight: 400;
     transition: color 0.3s;
 }
 
-/* Quand on survole un lien */
-.nav-links a:hover {
+.nav-menu a:hover {
     color: var(--primary);
 }
 
+.nav-btn {
+    background: var(--primary);
+    color: var(--dark) !important;
+    padding: 0.6rem 1.5rem;
+    border-radius: 5px;
+    font-weight: 600;
+}
 
-/* ========================================
-   PAGE D'ACCUEIL
-======================================== */
+.nav-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(201, 169, 97, 0.4);
+}
 
-/* Grande section avec image de fond */
-#hero {
+.nav-btn.active {
+    background: #d4af37;
+}
+
+/* ===== SECTION HERO ===== */
+.hero {
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 100px 5% 50px;
+    padding: 100px 2rem 50px;
     background: url('assets/header.png') center/cover no-repeat fixed;
     position: relative;
     color: var(--light);
 }
 
-/* Couche sombre sur l'image */
 .hero-overlay {
     position: absolute;
     top: 0;
@@ -113,30 +124,12 @@ nav {
     z-index: 1;
 }
 
-/* Contenu (titre, texte, boutons) */
 .hero-content {
     position: relative;
     z-index: 2;
     max-width: 800px;
 }
 
-/* Grand titre SULAI-BARBER */
-.hero-content h1 {
-    font-family: 'Bebas Neue', cursive;
-    font-size: clamp(3rem, 8vw, 5rem);
-    color: var(--primary);
-    margin-bottom: 1rem;
-    letter-spacing: 3px;
-}
-
-/* Texte sous le titre */
-.hero-content p {
-    font-size: 1.3rem;
-    margin-bottom: 2rem;
-    font-weight: 300;
-}
-
-/* Badge "Nouvelle ouverture" */
 .badge {
     display: inline-block;
     background: var(--primary);
@@ -147,16 +140,23 @@ nav {
     font-size: 0.9rem;
 }
 
-/* Container des boutons */
-.cta-buttons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
+.hero h1 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(3rem, 8vw, 5rem);
+    color: var(--primary);
+    margin-bottom: 1rem;
+    letter-spacing: 3px;
 }
 
-/* Style général des boutons */
+.hero-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+/* ===== BOUTONS ===== */
 .btn {
+    display: inline-block;
     padding: 1rem 2.5rem;
     font-size: 1rem;
     font-weight: 600;
@@ -165,53 +165,28 @@ nav {
     cursor: pointer;
     transition: all 0.3s;
     font-family: 'Poppins', sans-serif;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
 }
 
-/* Bouton jaune/doré */
 .btn-primary {
     background: var(--primary);
     color: var(--dark);
 }
 
-/* Quand on survole le bouton doré */
 .btn-primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 10px 25px rgba(201, 169, 97, 0.4);
 }
 
-/* Bouton transparent avec bordure */
-.btn-secondary {
-    background: transparent;
-    color: var(--light);
-    border: 2px solid var(--primary);
+.btn-large {
+    padding: 1.2rem 3rem;
+    font-size: 1.2rem;
 }
 
-/* Quand on survole le bouton transparent */
-.btn-secondary:hover {
-    background: var(--primary);
-    color: var(--dark);
-}
-
-
-/* ========================================
-   ESPACEMENT DES SECTIONS
-======================================== */
-
-/* Espace en haut et en bas de chaque section */
+/* ===== SECTIONS ===== */
 section {
-    padding: 5rem 5%;
+    padding: 5rem 0;
 }
 
-/* Limite la largeur du contenu */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Titre des sections */
 .section-title {
     font-family: 'Bebas Neue', cursive;
     font-size: 2.5rem;
@@ -221,25 +196,35 @@ section {
     letter-spacing: 2px;
 }
 
-
-/* ========================================
-   NOS SERVICES
-======================================== */
-
-/* Fond gris clair */
-#features {
-    background: #f9f9f9;
+/* ===== SECTION À PROPOS ===== */
+.about {
+    background: var(--light);
 }
 
-/* Grille de 3 colonnes */
-.features-grid {
+.about-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+}
+
+/* ===== SECTION SERVICES ===== */
+.services {
+    background: var(--gray-light);
+}
+
+.services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2.5rem;
 }
 
-/* Carte de chaque service */
-.feature-card {
+.service-card {
     background: var(--light);
     border-radius: 8px;
     overflow: hidden;
@@ -247,24 +232,20 @@ section {
     transition: transform 0.3s;
 }
 
-/* Quand on survole une carte */
-.feature-card:hover {
+.service-card:hover {
     transform: translateY(-10px);
 }
 
-/* Zone des images */
-.feature-images {
+.service-images {
     position: relative;
     overflow: hidden;
 }
 
-/* Container du slider */
 .image-slider {
     position: relative;
     height: 280px;
 }
 
-/* Chaque image */
 .image-slider img {
     position: absolute;
     top: 0;
@@ -276,12 +257,10 @@ section {
     transition: opacity 0.5s ease;
 }
 
-/* Image visible */
 .image-slider img.active {
     opacity: 1;
 }
 
-/* Petits points en bas */
 .slider-dots {
     position: absolute;
     bottom: 15px;
@@ -292,7 +271,6 @@ section {
     z-index: 10;
 }
 
-/* Style de chaque point */
 .dot {
     width: 10px;
     height: 10px;
@@ -302,56 +280,130 @@ section {
     transition: all 0.3s;
 }
 
-/* Point actif (image affichée) */
 .dot.active {
     background: var(--primary);
     width: 30px;
     border-radius: 5px;
 }
 
-/* Texte sous les images */
-.feature-content {
+.service-content {
     padding: 2rem;
 }
 
-/* Titre du service */
-.feature-content h3 {
+.service-content h3 {
     font-size: 1.5rem;
     color: var(--dark);
     margin-bottom: 1rem;
     font-family: 'Bebas Neue', cursive;
 }
 
-/* Description */
-.feature-content p {
+.service-content p {
     color: #666;
     line-height: 1.7;
 }
 
+/* ===== SECTION TARIFS ===== */
+.pricing {
+    background: var(--light);
+}
 
-/* ========================================
-   AVIS CLIENTS
-======================================== */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
 
-/* Fond noir */
-#temoignages {
+.pricing-card {
+    background: var(--gray-light);
+    padding: 2.5rem 2rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    position: relative;
+}
+
+.pricing-card:hover {
+    transform: scale(1.05);
+}
+
+.pricing-card.featured {
+    border: 3px solid var(--primary);
+}
+
+.popular-badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary);
+    color: var(--dark);
+    padding: 0.3rem 1rem;
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+.pricing-card h3 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.8rem;
+    color: var(--dark);
+    margin-bottom: 1rem;
+}
+
+.price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+}
+
+.price span {
+    font-size: 1rem;
+}
+
+.pricing-features {
+    list-style: none;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.pricing-features li {
+    padding: 0.7rem 0;
+    border-bottom: 1px solid #eee;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.pricing-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.pricing-features li:last-child {
+    border-bottom: none;
+}
+
+/* ===== SECTION AVIS ===== */
+.testimonials {
     background: linear-gradient(135deg, var(--dark) 0%, #252525 100%);
     color: var(--light);
 }
 
-/* Titre en doré */
-#temoignages .section-title {
+.testimonials .section-title {
     color: var(--primary);
 }
 
-/* Grille de 3 colonnes */
 .testimonials-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2.5rem;
 }
 
-/* Carte d'avis */
 .testimonial-card {
     background: linear-gradient(135deg, var(--gray) 0%, #2a2a2a 100%);
     padding: 2.5rem;
@@ -362,12 +414,10 @@ section {
     transition: transform 0.3s;
 }
 
-/* Quand on survole */
 .testimonial-card:hover {
     transform: translateY(-5px);
 }
 
-/* Grand guillemet décoratif */
 .quote-icon {
     font-size: 4rem;
     color: var(--primary);
@@ -378,21 +428,18 @@ section {
     font-family: Georgia, serif;
 }
 
-/* Texte de l'avis */
 .testimonial-quote {
     font-style: italic;
     margin-bottom: 1.5rem;
     line-height: 1.8;
 }
 
-/* Info du client */
 .testimonial-author {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
 
-/* Cercle avec initiale */
 .author-avatar {
     width: 60px;
     height: 60px;
@@ -406,40 +453,132 @@ section {
     color: var(--dark);
 }
 
-/* Nom du client */
 .author-name {
     font-weight: 600;
     color: var(--primary);
     margin-bottom: 0.3rem;
 }
 
-/* Étoiles */
 .stars {
     color: var(--primary);
     font-size: 1.1rem;
     letter-spacing: 2px;
 }
 
-
-/* ========================================
-   RESERVATION EN LIGNE
-======================================== */
-
-/* Fond blanc */
-#reservation {
-    background: var(--light);
+/* ===== SECTION CTA ===== */
+.cta-section {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    color: var(--light);
+    padding: 6rem 0;
+    position: relative;
+    overflow: hidden;
 }
 
-/* Sous-titre de la section */
-.reservation-subtitle {
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('assets/header.png') center/cover no-repeat;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.cta-content {
     text-align: center;
-    color: #666;
-    margin-bottom: 3rem;
-    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
 }
 
-/* Container principal */
-.reservation-container {
+.cta-content h2 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 3rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.cta-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+    color: #ccc;
+    line-height: 1.8;
+}
+
+.btn-large {
+    padding: 1.5rem 4rem;
+    font-size: 1.3rem;
+    background: linear-gradient(135deg, var(--primary) 0%, #d4af37 100%);
+    color: var(--dark);
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(201, 169, 97, 0.4);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-large::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn-large:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-large:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(201, 169, 97, 0.6);
+}
+
+.btn-large:active {
+    transform: translateY(-2px) scale(1.02);
+}
+
+/* ===== PAGE RÉSERVATION ===== */
+.reservation-page {
+    padding: 120px 0 80px;
+    background: var(--gray-light);
+    min-height: 100vh;
+}
+
+.reservation-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.reservation-header h1 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 3rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+}
+
+.reservation-header p {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.reservation-layout {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 3rem;
@@ -447,38 +586,27 @@ section {
     margin: 0 auto;
 }
 
-/* Formulaire de réservation */
-.reservation-form {
+.reservation-form-container {
     background: var(--light);
-    padding: 2.5rem;
+    padding: 3rem;
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
 }
 
-/* Ligne avec 2 champs */
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-}
-
-/* Groupe de champ (label + input) */
-.form-group {
+.reservation-form .form-group {
     margin-bottom: 1.5rem;
 }
 
-/* Label (texte au-dessus du champ) */
-.form-group label {
+.reservation-form label {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 600;
     color: var(--dark);
 }
 
-/* Champs de texte */
-.form-group input,
-.form-group select,
-.form-group textarea {
+.reservation-form input,
+.reservation-form select,
+.reservation-form textarea {
     width: 100%;
     padding: 1rem;
     border: 2px solid #e0e0e0;
@@ -488,31 +616,61 @@ section {
     transition: border-color 0.3s;
 }
 
-/* Quand on clique dans un champ */
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
+.reservation-form input:focus,
+.reservation-form select:focus,
+.reservation-form textarea:focus {
     outline: none;
     border-color: var(--primary);
 }
 
-/* Zone de texte */
-.form-group textarea {
+.reservation-form textarea {
     resize: vertical;
     min-height: 100px;
 }
 
-/* Bouton de réservation */
-.btn-reservation {
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.btn-submit {
     width: 100%;
     padding: 1.2rem;
     font-size: 1.1rem;
     margin-top: 1rem;
+    background: var(--primary);
+    color: var(--dark);
 }
 
-/* Message de confirmation */
-.reservation-message {
-    margin-top: 1rem;
+.btn-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.spinner {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 2px solid var(--dark);
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 0.85rem;
+    margin-top: 0.3rem;
+    display: block;
+}
+
+.form-message {
+    margin-top: 1.5rem;
     padding: 1rem;
     border-radius: 5px;
     text-align: center;
@@ -520,212 +678,38 @@ section {
     display: none;
 }
 
-/* Message de succès */
-.reservation-message.success {
+.form-message.success {
     background: #d4edda;
     color: #155724;
     border: 1px solid #c3e6cb;
     display: block;
 }
 
-/* Message d'erreur */
-.reservation-message.error {
+.form-message.error {
     background: #f8d7da;
     color: #721c24;
     border: 1px solid #f5c6cb;
     display: block;
 }
 
-/* Informations complémentaires */
-.reservation-info {
+.reservation-sidebar {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
 }
 
-/* Carte d'info */
-.info-card {
-    background: #f9f9f9;
+.info-box {
+    background: var(--light);
     padding: 1.5rem;
     border-radius: 10px;
-    border-left: 4px solid var(--primary);
-    text-align: center;
-}
-
-/* Icône de la carte */
-.info-icon {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-}
-
-/* Titre de la carte */
-.info-card h3 {
-    font-family: 'Bebas Neue', cursive;
-    font-size: 1.3rem;
-    color: var(--dark);
-    margin-bottom: 0.5rem;
-    letter-spacing: 1px;
-}
-
-/* Texte de la carte */
-.info-card p {
-    color: #666;
-    margin: 0.3rem 0;
-}
-
-/* Lien téléphone dans la carte */
-.info-card a {
-    color: var(--primary);
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.info-card a:hover {
-    text-decoration: underline;
-}
-
-
-/* ========================================
-   TARIFS
-======================================== */
-
-/* Fond gris clair */
-#pricing {
-    background: #f9f9f9;
-}
-
-/* Grille de 3 colonnes */
-.pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-/* Carte de tarif */
-.pricing-card {
-    background: var(--light);
-    padding: 2.5rem 2rem;
-    border-radius: 10px;
-    text-align: center;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
-    display: flex;
-    flex-direction: column;
-}
-
-/* Quand on survole */
-.pricing-card:hover {
-    transform: scale(1.05);
-}
-
-/* Carte "Populaire" (Premium) */
-.pricing-card.featured {
-    border: 3px solid var(--primary);
-}
-
-/* Badge "Populaire" */
-.popular-badge {
-    position: absolute;
-    top: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--primary);
-    color: var(--dark);
-    padding: 0.3rem 1rem;
-    font-weight: 700;
-    font-size: 0.85rem;
-}
-
-/* Titre du forfait */
-.pricing-card h3 {
-    font-family: 'Bebas Neue', cursive;
-    font-size: 1.8rem;
-    color: var(--dark);
-    margin-bottom: 1rem;
-}
-
-/* Prix */
-.price {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--primary);
-    margin-bottom: 1.5rem;
-}
-
-.price span {
-    font-size: 1rem;
-}
-
-/* Liste des services */
-.pricing-features {
-    list-style: none;
-    margin-bottom: auto;
-    padding-bottom: 2rem;
-    text-align: left;
-}
-
-/* Chaque ligne */
-.pricing-features li {
-    padding: 0.7rem 0;
-    border-bottom: 1px solid #eee;
-    padding-left: 1.5rem;
-    position: relative;
-}
-
-/* Coche verte */
-.pricing-features li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--primary);
-    font-weight: bold;
-}
-
-/* Dernière ligne sans bordure */
-.pricing-features li:last-child {
-    border-bottom: none;
-}
-
-/* Bouton en bas de la carte */
-.pricing-card .btn {
-    margin-top: auto;
-    width: 100%;
-    justify-content: center;
-}
-
-
-/* ========================================
-   NEWSLETTER
-======================================== */
-
-/* Fond noir */
-#newsletter {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-    padding: 6rem 5%;
-}
-
-/* Container principal */
-.newsletter-container {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-/* Boîte du contenu */
-.newsletter-content {
-    background: linear-gradient(135deg, var(--gray) 0%, #2a2a2a 100%);
-    padding: 4rem 3rem;
-    border-radius: 20px;
     text-align: center;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
 }
 
-/* Icône email en cercle */
-.newsletter-icon {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 2rem;
+.info-icon {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 1rem;
     background: var(--primary);
     border-radius: 50%;
     display: flex;
@@ -733,107 +717,57 @@ section {
     justify-content: center;
 }
 
-.newsletter-icon svg {
-    width: 40px;
-    height: 40px;
-    color: var(--dark);
+.info-icon img {
+    width: 28px;
+    height: 28px;
+    filter: brightness(0);
 }
 
-/* Titre */
-.newsletter-content h2 {
+.info-box h3 {
     font-family: 'Bebas Neue', cursive;
-    font-size: 2.5rem;
+    font-size: 1.3rem;
+    color: var(--dark);
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.info-box p {
+    color: #666;
+    margin: 0.3rem 0;
+}
+
+.info-box a {
     color: var(--primary);
-    margin-bottom: 1rem;
-    letter-spacing: 2px;
-}
-
-/* Texte */
-.newsletter-content > p {
-    color: #ccc;
-    margin-bottom: 2rem;
-    font-size: 1.05rem;
-    line-height: 1.7;
-}
-
-/* Formulaire */
-.newsletter-form {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-/* Champ + bouton ensemble */
-.input-wrapper {
-    display: flex;
-    gap: 0;
-    background: var(--light);
-    border-radius: 50px;
-    overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-}
-
-/* Champ email */
-input[type="email"] {
-    flex: 1;
-    padding: 1.2rem 1.5rem;
-    border: none;
-    background: transparent;
-    color: var(--dark);
-    font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
-}
-
-/* Quand on clique dedans */
-input[type="email"]:focus {
-    outline: none;
-}
-
-/* Texte placeholder */
-input[type="email"]::placeholder {
-    color: #999;
-}
-
-/* Bouton envoyer */
-.btn-submit {
-    background: var(--primary);
-    color: var(--dark);
-    padding: 1.2rem 2rem;
-    border: none;
+    text-decoration: none;
     font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s;
 }
 
-.btn-submit svg {
-    width: 20px;
-    height: 20px;
+.info-box.highlight {
+    background: linear-gradient(135deg, var(--primary) 0%, #d4af37 100%);
+    color: var(--dark);
 }
 
-/* Quand on survole */
-.btn-submit:hover {
-    background: #d4af37;
+.info-box.highlight h3 {
+    color: var(--dark);
 }
 
-/* Petit texte en bas */
-.newsletter-privacy {
-    margin-top: 1.5rem;
-    font-size: 0.85rem;
-    color: #999;
+.info-box.highlight ul {
+    list-style: none;
+    text-align: left;
+    margin-top: 1rem;
 }
 
+.info-box.highlight li {
+    padding: 0.5rem 0;
+}
 
-/* ========================================
-   BAS DE PAGE (FOOTER)
-======================================== */
-
-/* Fond noir */
+/* ===== FOOTER ===== */
 footer {
     background: #0d0d0d;
     color: var(--light);
-    padding: 3rem 5%;
+    padding: 3rem 2rem;
 }
 
-/* Grille de 4 colonnes */
 .footer-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -842,7 +776,6 @@ footer {
     margin: 0 auto 2rem;
 }
 
-/* Titre de chaque colonne */
 .footer-section h3 {
     color: var(--primary);
     margin-bottom: 1rem;
@@ -850,7 +783,6 @@ footer {
     font-family: 'Bebas Neue', cursive;
 }
 
-/* Texte et liens */
 .footer-section p,
 .footer-section a {
     color: #ccc;
@@ -860,22 +792,33 @@ footer {
     transition: color 0.3s;
 }
 
-/* Quand on survole un lien */
 .footer-section a:hover {
     color: var(--primary);
 }
 
-/* Container des réseaux sociaux */
-.social-links {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1.5rem;
+.social-container {
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 2rem;
+    border-top: 1px solid var(--gray);
 }
 
-/* Lien de réseau social */
+.social-container h3 {
+    font-family: 'Bebas Neue', cursive;
+    color: var(--primary);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
 .social-links a {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     background: var(--gray);
     border-radius: 50%;
     display: flex;
@@ -884,34 +827,17 @@ footer {
     transition: all 0.3s;
 }
 
-/* Image du réseau social */
 .social-links img {
-    width: 22px;
-    height: 22px;
+    width: 26px;
+    height: 26px;
     filter: brightness(0) invert(1);
 }
 
-/* Quand on survole un réseau social */
 .social-links a:hover {
     background: var(--primary);
-    transform: translateY(-3px);
+    transform: translateY(-5px);
 }
 
-/* Ligne téléphone avec icône */
-.phone-link {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-/* Icône téléphone */
-.phone-icon {
-    width: 18px;
-    height: 18px;
-    filter: brightness(0) invert(1);
-}
-
-/* Ligne de copyright */
 .footer-bottom {
     text-align: center;
     padding-top: 2rem;
@@ -919,63 +845,447 @@ footer {
     color: #999;
 }
 
-
-/* ========================================
-   VERSION MOBILE
-======================================== */
-
-/* Pour les petits écrans */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-    /* Menu plus petit */
-    .nav-links {
+    .nav-menu {
         gap: 1rem;
         font-size: 0.9rem;
     }
 
-    /* Boutons en colonne */
-    .cta-buttons {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .btn {
-        width: 100%;
-        justify-content: center;
-    }
-
-    /* Newsletter en colonne */
-    .input-wrapper {
-        flex-direction: column;
-        border-radius: 10px;
-    }
-
-    .btn-submit {
-        border-radius: 0 0 10px 10px;
-    }
-
-    /* Moins d'espace */
-    section {
-        padding: 3rem 5%;
-    }
-
-    .newsletter-content {
-        padding: 3rem 1.5rem;
-    }
-
-    /* Grilles en une colonne */
-    .features-grid,
-    .testimonials-grid,
-    .pricing-grid {
+    .services-grid,
+    .pricing-grid,
+    .testimonials-grid {
         grid-template-columns: 1fr;
     }
-    
-    /* Réservation en une colonne sur mobile */
-    .reservation-container {
+
+    .reservation-layout {
         grid-template-columns: 1fr;
     }
-    
-    /* Champs en une colonne sur mobile */
+
+    .reservation-form-container {
+        padding: 2rem;
+    }
+
     .form-row {
         grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 3rem 0;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+}
+
+/* ===== SECTION GALERIE ===== */
+
+/* Fond noir pour la section */
+.gallery {
+    background: #111;
+    padding: 5rem 0;
+    position: relative;
+}
+
+/* Sous-titre centré */
+.gallery-subtitle {
+    text-align: center;
+    color: #aaa;
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+}
+
+/* Grille des photos : 4 colonnes sur grand écran */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+/* Chaque photo */
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 6px;
+    cursor: pointer;
+    aspect-ratio: 1 / 1;
+    background: #222;
+}
+
+/* Photo en plein format */
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+/* Agrandissement au survol */
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Couche dorée au survol */
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(201, 169, 97, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+/* Texte "Voir" */
+.gallery-overlay span {
+    color: #1a1a1a;
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'Bebas Neue', cursive;
+}
+
+/* ===== LIGHTBOX (VISIONNEUSE PLEIN ÉCRAN) ===== */
+
+/* Fond noir qui couvre tout l'écran */
+.gallery-lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* Lightbox active (visible) */
+.gallery-lightbox.active {
+    display: flex;
+}
+
+/* Image dans la lightbox */
+.gallery-lightbox img {
+    max-width: 90%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+/* Bouton fermer */
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 2.5rem;
+    color: var(--primary);
+    background: none;
+    border: none;
+    cursor: pointer;
+    line-height: 1;
+    transition: transform 0.2s;
+}
+
+.lightbox-close:hover {
+    transform: scale(1.2);
+}
+
+/* Boutons précédent / suivant */
+.lightbox-prev,
+.lightbox-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 3rem;
+    color: var(--primary);
+    background: rgba(255,255,255,0.05);
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.lightbox-prev { left: 20px; }
+.lightbox-next { right: 20px; }
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+    background: rgba(201, 169, 97, 0.3);
+}
+
+/* Compteur d'images */
+.lightbox-counter {
+    color: #aaa;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+
+/* ===== SECTION LAISSER UN AVIS ===== */
+
+/* Fond gris clair */
+.review-section {
+    background: var(--gray-light);
+    padding: 5rem 0;
+}
+
+/* Sous-titre */
+.review-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+}
+
+/* Layout : formulaire à gauche, avis à droite */
+.review-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+/* Boîte du formulaire */
+.review-form-container {
+    background: var(--light);
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+/* Style du formulaire */
+.review-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.review-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--dark);
+}
+
+.review-form input,
+.review-form select,
+.review-form textarea {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.review-form input:focus,
+.review-form select:focus,
+.review-form textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+/* Étoiles cliquables */
+.star-rating {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.star {
+    font-size: 2rem;
+    color: #ddd;
+    cursor: pointer;
+    transition: color 0.2s, transform 0.2s;
+}
+
+/* Étoile survolée ou active */
+.star.hover,
+.star.active {
+    color: var(--primary);
+    transform: scale(1.2);
+}
+
+/* Bouton publier */
+.btn-review {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--primary) 0%, #d4af37 100%);
+    color: var(--dark);
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn-review:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(201, 169, 97, 0.4);
+}
+
+/* Zone d'affichage des avis */
+.reviews-display {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Titre "Avis Récents" */
+.reviews-display-title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.8rem;
+    color: var(--dark);
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+/* Liste des avis avec scroll si beaucoup d'avis */
+.reviews-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    max-height: 550px;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}
+
+/* Barre de scroll dorée */
+.reviews-list::-webkit-scrollbar {
+    width: 5px;
+}
+.reviews-list::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 10px;
+}
+
+/* Carte d'un avis */
+.review-card {
+    background: var(--light);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    border-left: 4px solid var(--primary);
+    transition: transform 0.2s;
+}
+
+.review-card:hover {
+    transform: translateX(5px);
+}
+
+/* Haut de la carte : avatar + nom + étoiles */
+.review-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.8rem;
+}
+
+/* Cercle avec initiale */
+.review-avatar {
+    width: 45px;
+    height: 45px;
+    min-width: 45px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), #d4af37);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--dark);
+}
+
+/* Nom de l'auteur */
+.review-author {
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 0.2rem;
+}
+
+/* Étoiles de l'avis */
+.review-stars {
+    color: var(--primary);
+    font-size: 1rem;
+    letter-spacing: 2px;
+}
+
+/* Texte du commentaire */
+.review-text {
+    color: #555;
+    font-style: italic;
+    line-height: 1.7;
+    margin-bottom: 0.5rem;
+}
+
+/* Badge du service */
+.review-service {
+    font-size: 0.8rem;
+    color: var(--primary);
+    font-weight: 600;
+    background: rgba(201, 169, 97, 0.1);
+    display: inline-block;
+    padding: 0.2rem 0.8rem;
+    border-radius: 20px;
+}
+
+/* Avis avec animation d'entrée (ajouté dynamiquement) */
+.review-card.new-review {
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ===== RESPONSIVE GALERIE ET AVIS ===== */
+@media (max-width: 1024px) {
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .review-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .lightbox-prev,
+    .lightbox-next {
+        font-size: 2rem;
+        padding: 0.3rem 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
     }
 }

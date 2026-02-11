@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Réservez votre rendez-vous chez SULAI-BARBER">
+    <title>Réservation - SULAI-BARBER</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <!-- HEADER ET NAVIGATION -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">SULAI-BARBER</div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="index.html#apropos">À Propos</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#tarifs">Tarifs</a></li>
+                    <li><a href="index.html#avis">Avis</a></li>
+                    <li><a href="reservation.html" class="nav-btn active">Réserver</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- PAGE DE RÉSERVATION -->
+    <section class="reservation-page">
+        <div class="container">
+            
+            <div class="reservation-header">
+                <h1>Réservez Votre Rendez-vous</h1>
+                <p>Remplissez le formulaire ci-dessous pour prendre rendez-vous. Nous vous confirmerons votre réservation dans les plus brefs délais.</p>
+            </div>
+
+            <div class="reservation-layout">
+                
+                <!-- FORMULAIRE DE RÉSERVATION -->
+                <div class="reservation-form-container">
+                    <form id="reservationForm" class="reservation-form">
+                        
+                        <!-- Nom complet -->
+                        <div class="form-group">
+                            <label for="name">Nom Complet *</label>
+                            <input 
+                                type="text" 
+                                id="name" 
+                                name="name" 
+                                placeholder="Votre nom et prénom"
+                                required
+                            >
+                            <span class="error-message"></span>
+                        </div>
+
+                        <!-- Téléphone -->
+                        <div class="form-group">
+                            <label for="phone">Numéro de Téléphone *</label>
+                            <input 
+                                type="tel" 
+                                id="phone" 
+                                name="phone" 
+                                placeholder="+237 6XX XXX XXX"
+                                required
+                            >
+                            <span class="error-message"></span>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="form-group">
+                            <label for="email">Adresse E-mail *</label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                placeholder="votre.email@exemple.com"
+                                required
+                            >
+                            <span class="error-message"></span>
+                        </div>
+
+                        <!-- Service -->
+                        <div class="form-group">
+                            <label for="service">Service Souhaité *</label>
+                            <select id="service" name="service" required>
+                                <option value="">Sélectionnez un service</option>
+                                <option value="Coupe Simple - 2.500 FCFA">Coupe Simple - 2.500 FCFA</option>
+                                <option value="Coupe Premium - 4.000 FCFA">Coupe Premium - 4.000 FCFA</option>
+                                <option value="Service Complet - 6.000 FCFA">Service Complet - 6.000 FCFA</option>
+                                <option value="Rasage Professionnel">Rasage Professionnel</option>
+                                <option value="Entretien Barbe">Entretien Barbe</option>
+                            </select>
+                            <span class="error-message"></span>
+                        </div>
+
+                        <!-- Date et Heure -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="date">Date du Rendez-vous *</label>
+                                <input 
+                                    type="date" 
+                                    id="date" 
+                                    name="date" 
+                                    required
+                                >
+                                <span class="error-message"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="time">Heure du Rendez-vous *</label>
+                                <select id="time" name="time" required>
+                                    <option value="">Choisir l'heure</option>
+                                    <option value="09:00">09:00</option>
+                                    <option value="09:30">09:30</option>
+                                    <option value="10:00">10:00</option>
+                                    <option value="10:30">10:30</option>
+                                    <option value="11:00">11:00</option>
+                                    <option value="11:30">11:30</option>
+                                    <option value="12:00">12:00</option>
+                                    <option value="14:00">14:00</option>
+                                    <option value="14:30">14:30</option>
+                                    <option value="15:00">15:00</option>
+                                    <option value="15:30">15:30</option>
+                                    <option value="16:00">16:00</option>
+                                    <option value="16:30">16:30</option>
+                                    <option value="17:00">17:00</option>
+                                    <option value="17:30">17:30</option>
+                                    <option value="18:00">18:00</option>
+                                    <option value="18:30">18:30</option>
+                                    <option value="19:00">19:00</option>
+                                </select>
+                                <span class="error-message"></span>
+                            </div>
+                        </div>
+
+                        <!-- Message -->
+                        <div class="form-group">
+                            <label for="message">Message ou Demande Spéciale</label>
+                            <textarea 
+                                id="message" 
+                                name="message" 
+                                rows="4"
+                                placeholder="Avez-vous des demandes particulières ?"
+                            ></textarea>
+                        </div>
+
+                        <!-- Bouton de soumission -->
+                        <button type="submit" class="btn btn-submit" id="submitBtn">
+                            <span class="btn-text">Confirmer la Réservation</span>
+                            <span class="btn-loader" style="display: none;">
+                                <span class="spinner"></span> Envoi en cours...
+                            </span>
+                        </button>
+
+                        <!-- Message de confirmation -->
+                        <div id="formMessage" class="form-message"></div>
+
+                    </form>
+                </div>
+
+                <!-- INFORMATIONS COMPLÉMENTAIRES -->
+                <div class="reservation-sidebar">
+                    
+                    <div class="info-box">
+                        <div class="info-icon">
+                            <img src="assets/time-outline.svg" alt="Horaires">
+                        </div>
+                        <h3>Horaires d'Ouverture</h3>
+                        <p>Lundi - Samedi: 9h - 20h</p>
+                        <p>Dimanche: 10h - 18h</p>
+                    </div>
+
+                    <div class="info-box">
+                        <div class="info-icon">
+                            <img src="assets/location-outline.svg" alt="Adresse">
+                        </div>
+                        <h3>Notre Adresse</h3>
+                        <p>PK17, Douala</p>
+                        <p>Cameroun</p>
+                    </div>
+
+                    <div class="info-box">
+                        <div class="info-icon">
+                            <img src="assets/call-outline.svg" alt="Téléphone">
+                        </div>
+                        <h3>Contactez-nous</h3>
+                        <p><a href="tel:+237680065161">+237 680 065 161</a></p>
+                    </div>
+
+                    <div class="info-box highlight">
+                        <h3>À Savoir</h3>
+                        <ul>
+                            <li>✓ Confirmation par SMS</li>
+                            <li>✓ Annulation gratuite 24h avant</li>
+                            <li>✓ Produits premium inclus</li>
+                            <li>✓ Équipe professionnelle</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            
+            <div class="footer-section">
+                <h3>SULAI-BARBER</h3>
+                <p>Votre salon de coiffure professionnel à Douala</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Horaires</h3>
+                <p>Lundi - Samedi: 9h - 20h</p>
+                <p>Dimanche: 10h - 18h</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>PK17, Douala, Cameroun</p>
+                <p><a href="tel:+237680065161">+237 680 065 161</a></p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                <a href="index.html#apropos">À Propos</a>
+                <a href="index.html#services">Services</a>
+                <a href="index.html#tarifs">Tarifs</a>
+                <a href="index.html#avis">Avis</a>
+            </div>
+
+        </div>
+
+        <div class="social-container">
+            <h3>Suivez-nous</h3>
+            <div class="social-links">
+                <a href="https://www.facebook.com" target="_blank">
+                    <img src="assets/logo-facebook.svg" alt="Facebook">
+                </a>
+                <a href="https://www.instagram.com" target="_blank">
+                    <img src="assets/logo-instagram.svg" alt="Instagram">
+                </a>
+                <a href="https://www.tiktok.com" target="_blank">
+                    <img src="assets/logo-tiktok.svg" alt="TikTok">
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 SULAI-BARBER. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
