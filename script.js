@@ -196,7 +196,7 @@ ${formData.message ? `Message particulier:\n${formData.message}` : ''}
 Merci de confirmer ce rendez-vous au plus vite.
     `.trim();
 
-    // Utilisation de FormSubmit pour l'envoi d'email
+    // Utilisation de FormSubmit avec AJAX pour éviter la redirection
     const response = await fetch('https://formsubmit.co/ajax/sulaimanuadamubello144@gmail.com', {
         method: 'POST',
         headers: {
@@ -209,6 +209,7 @@ Merci de confirmer ce rendez-vous au plus vite.
             phone: formData.phone,
             subject: `Nouvelle Réservation - ${formData.name} - ${formData.date} à ${formData.time}`,
             message: emailBody,
+            _captcha: 'false',  // Désactive le captcha
             _template: 'box'
         })
     });
@@ -217,7 +218,14 @@ Merci de confirmer ce rendez-vous au plus vite.
         throw new Error('Erreur d\'envoi');
     }
 
-    return response.json();
+    const result = await response.json();
+    
+    // FormSubmit renvoie un objet avec success: "true" ou "false"
+    if (result.success === "false") {
+        throw new Error('Erreur lors de l\'envoi');
+    }
+
+    return result;
 }
 
 // Fonction pour afficher les erreurs
