@@ -847,7 +847,19 @@ footer {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
+    .hero {
+        background-attachment: scroll;
+    }
+
+    .nav-container {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+    }
+
     .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
         gap: 1rem;
         font-size: 0.9rem;
     }

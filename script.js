@@ -9,6 +9,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// Retourne la date locale au format YYYY-MM-DD
+function getLocalDateString(date = new Date()) {
+    const local = new Date(date.getTime() - (date.getTimezoneOffset() * 60000));
+    return local.toISOString().split('T')[0];
+}
+
 // ===== SLIDER D'IMAGES =====
 document.addEventListener('DOMContentLoaded', function() {
     const serviceCards = document.querySelectorAll('.service-card');
@@ -61,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // ===== DATE MINIMUM POUR RÉSERVATION =====
     const dateInput = document.getElementById('date');
     if (dateInput) {
-        const today = new Date().toISOString().split('T')[0];
+        const today = getLocalDateString();
         dateInput.setAttribute('min', today);
     }
 });
@@ -122,15 +128,21 @@ if (reservationForm) {
         }
 
         // Validation date
-        const selectedDate = new Date(formData.date);
-        const today = new Date();
-        today.setHours(0, 0, 0, 0);
-        
-        if (selectedDate < today) {
-            showError('date', 'Veuillez choisir une date future');
+        if (!formData.date) {
+            showError('date', 'Veuillez choisir une date');
             isValid = false;
         } else {
-            clearError('date');
+            const [year, month, day] = formData.date.split('-').map(Number);
+            const selectedDate = new Date(year, month - 1, day);
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+
+            if (selectedDate < today) {
+                showError('date', 'Veuillez choisir une date future');
+                isValid = false;
+            } else {
+                clearError('date');
+            }
         }
 
         // Validation heure
@@ -185,7 +197,7 @@ Téléphone: ${formData.phone}
 Email: ${formData.email}
 
 Détails de la réservation:
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Service: ${formData.service}
 Date: ${formData.date}
 Heure: ${formData.time}
@@ -253,18 +265,28 @@ function clearError(fieldId) {
 }
 
 // Fonction pour afficher les messages
+let reservationMessageTimeoutId;
 function showMessage(text, type) {
     const messageDiv = document.getElementById('formMessage');
+    if (!messageDiv) return;
+
+    if (reservationMessageTimeoutId) {
+        clearTimeout(reservationMessageTimeoutId);
+    }
+
     messageDiv.textContent = text;
     messageDiv.className = `form-message ${type}`;
+    messageDiv.style.display = 'block';
     
     // Scroll vers le message
     messageDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     
     // Masquer après 10 secondes si succès
     if (type === 'success') {
-        setTimeout(() => {
-            messageDiv.style.display = 'none';
+        reservationMessageTimeoutId = setTimeout(() => {
+            messageDiv.textContent = '';
+            messageDiv.className = 'form-message';
+            messageDiv.style.display = '';
         }, 10000);
     }
 }
@@ -411,6 +433,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Soumission du formulaire d'avis
+    let reviewMessageTimeoutId;
     const reviewForm = document.getElementById('reviewForm');
     if (reviewForm) {
         reviewForm.addEventListener('submit', function(e) {
@@ -464,6 +487,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Message de succès
             msgDiv.textContent = 'Merci pour votre avis ! Il a été publié.';
             msgDiv.className = 'form-message success';
+            msgDiv.style.display = 'block';
 
             // Remet le formulaire à zéro
             reviewForm.reset();
@@ -473,8 +497,13 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             // Cache le message après 5 secondes
-            setTimeout(() => {
-                msgDiv.style.display = 'none';
+            if (reviewMessageTimeoutId) {
+                clearTimeout(reviewMessageTimeoutId);
+            }
+            reviewMessageTimeoutId = setTimeout(() => {
+                msgDiv.textContent = '';
+                msgDiv.className = 'form-message';
+                msgDiv.style.display = '';
             }, 5000);
         });
     }
@@ -492,17 +521,42 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const card = document.createElement('div');
         card.className = 'review-card new-review';
-        card.innerHTML = `
-            <div class="review-header">
-                <div class="review-avatar">${initial}</div>
-                <div class="review-meta">
-                    <p class="review-author">${name}</p>
-                    <div class="review-stars">${starsHtml}</div>
-                </div>
-            </div>
-            <p class="review-text">${comment}</p>
-            ${service ? `<p class="review-service">${service}</p>` : ''}
-        `;
+
+        const header = document.createElement('div');
+        header.className = 'review-header';
+
+        const avatar = document.createElement('div');
+        avatar.className = 'review-avatar';
+        avatar.textContent = initial;
+
+        const meta = document.createElement('div');
+        meta.className = 'review-meta';
+
+        const author = document.createElement('p');
+        author.className = 'review-author';
+        author.textContent = name;
+
+        const stars = document.createElement('div');
+        stars.className = 'review-stars';
+        stars.textContent = starsHtml;
+
+        const reviewText = document.createElement('p');
+        reviewText.className = 'review-text';
+        reviewText.textContent = comment;
+
+        meta.appendChild(author);
+        meta.appendChild(stars);
+        header.appendChild(avatar);
+        header.appendChild(meta);
+        card.appendChild(header);
+        card.appendChild(reviewText);
+
+        if (service) {
+            const serviceBadge = document.createElement('p');
+            serviceBadge.className = 'review-service';
+            serviceBadge.textContent = service;
+            card.appendChild(serviceBadge);
+        }
 
         // Ajoute en haut de la liste
         reviewsList.insertBefore(card, reviewsList.firstChild);
